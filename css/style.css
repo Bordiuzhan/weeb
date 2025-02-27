@@ -1,0 +1,218 @@
+@import '/css/reset.css';
+@import 'variable.css';
+@import 'components.css';
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  background-color: var(--Blue-Gray-900);
+  color: var(--White);
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.wrapper > main {
+  flex-grow: 1;
+}
+
+[class*='__container'] {
+  max-width: 81.875rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+/* ========= HEADER ========= */
+.header {
+  padding-top: 24px;
+}
+.header__body {
+  column-gap: 46px;
+  row-gap: 5px;
+  padding: 24px;
+  border-radius: 20px;
+
+  background: var(--Blue-Gray-Light);
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0px 0px 15px 0px rgba(0, 0, 0, 0.07);
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+}
+.link__logo {
+  position: relative;
+  z-index: 2;
+  color: var(--White);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+.link__logo:hover {
+  color: var(--Hover);
+}
+.header__menu {
+}
+.menu {
+}
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 32px;
+  row-gap: 5px;
+}
+.menu__item {
+}
+.menu__link {
+  color: var(--White);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+.menu__link:hover {
+  color: var(--Hover);
+}
+.header__action {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.action-header {
+}
+.action-header__button {
+}
+
+.icon-menu {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .header {
+    padding-top: 15px;
+  }
+  .header__body {
+    padding: 15px;
+    column-gap: 25px;
+  }
+  .menu__list {
+    column-gap: 15px;
+  }
+  .action-header__button.button--mini {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (max-width: 767.98px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Blue-Gray-900);
+    padding: 105px 18px 30px;
+    overflow: auto;
+    transition: left 0.3s;
+  }
+
+  .open-menu .menu {
+    left: 0;
+  }
+  .menu::before {
+    position: fixed;
+    content: '';
+    z-index: 3;
+    height: 64px;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    border-radius: 20px;
+    background: var(--Blue-Gray-Light);
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0px 0px 15px 0px rgba(0, 0, 0, 0.07);
+    grid-template-columns: auto 1fr auto;
+  }
+  .menu__list {
+    flex-direction: column;
+    align-items: end;
+    row-gap: 20px;
+  }
+  .menu__link {
+    font-size: 28px;
+  }
+  .header__body {
+    padding: 8px 8px 8px 24px;
+    justify-content: space-between;
+    grid-template-columns: auto auto;
+  }
+  .icon-menu {
+    display: block;
+    position: relative;
+    width: 48px;
+    height: 48px;
+  }
+  .icon-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--White);
+  }
+  .icon-menu span,
+  .icon-menu::before,
+  .icon-menu::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    border-radius: 4px;
+    background-color: var(--White);
+  }
+  .icon-menu::before,
+  .icon-menu::after {
+    width: 15px;
+  }
+  .icon-menu::before {
+    top: 14px;
+    left: 10px;
+    transition: all 0.3s;
+  }
+  .icon-menu::after {
+    right: 10px;
+    bottom: 14px;
+    transition: all 0.3s;
+  }
+  .icon-menu span {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    transition: all 0.3s;
+  }
+  .open-menu .icon-menu span {
+    left: 10px;
+    transform: rotate(-45deg);
+  }
+  .open-menu .icon-menu::before {
+    width: 14px;
+    top: 19px;
+    left: 12px;
+    transform: rotate(45deg);
+  }
+  .open-menu .icon-menu::after {
+    width: 14px;
+    right: 12px;
+    bottom: 15px;
+    transform: rotate(45deg);
+  }
+}
+@media (max-width: 439.98px) {
+  .action-header__button {
+    display: none;
+  }
+}
+
+/* ========= PAGE ========= */
